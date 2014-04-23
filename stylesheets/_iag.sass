@@ -1,0 +1,251 @@
+// Sass integration for IAG fonts
+//   https://github.com/rstacruz/sass_icon_fonts
+//
+// Font files:
+//   iag_test5.eot
+//   iag_test5.svg
+//   iag_test5.woff
+//   iag_test5.ttf
+
+$iag-native-size: 40px
+
+$iag-path: 'entypo' !default
+
+= iag-font
+  @font-face
+    font-family: 'entypo'
+    src: url('#{$iag-path}.eot')
+    src: url('#{$iag-path}.eot?#iefix') format("embedded-opentype"), url('#{$iag-path}.woff') format("woff"), url('#{$iag-path}.ttf') format("truetype"), url('#{$iag-path}.svg#entypo') format("svg")
+    font-weight: normal
+    font-style: normal
+    speak: none
+
+// Uses a given icon.
+//
+//     +iag-icon(music)
+//     +iag-icon(music, 24px)        /* 24px size */
+//     +iag-icon(music, 32px, 10px)  /* 24px size, 10px margin right */
+//
+// You may specify a color.
+//
+//     +iag-icon(music, $color: #333)
+//
+// You may also specify a `$top` value to compensate for any mis-alignment.
+// This nudges the icon by that many pixels from the top.
+//
+//     +iag-icon(music, $top: 2px)
+//
+= iag-icon($type, $size: auto, $margin: auto, $color: auto, $top: auto, $shadow: none, $position: "before")
+  &:#{$position}
+    @extend %iag-icon
+    @extend %iag-#{$type}
+    @if $position == "before"
+      @if $margin != auto
+        margin-right: $margin
+    @if $position == "after"
+      @if $margin != auto
+        margin-left: $margin
+    @if $size != auto
+      font-size: $size
+    @if $top != auto
+      position: relative
+      top: $top
+    @if $color != auto
+      color: $color
+    @if $shadow != none
+      text-shadow: $shadow
+
+%iag-icon
+  line-height: 1em
+  font-family: 'entypo'
+  font-weight: normal
+  font-style: normal
+  display: inline-block
+  text-decoration: none
+  vertical-align: middle
+  text-rendering: optimizeLegibility !important
+  -webkit-font-smoothing: antialiased !important
+  -moz-osx-font-smoothing: grayscale
+
+%iag-24h-assist
+  content: "\e800"
+%iag-youtube
+  content: "\e85a"
+%iag-alarm-medical
+  content: "\e802"
+%iag-alarm
+  content: "\e803"
+%iag-arrow-down
+  content: "\e804"
+%iag-arrow-up
+  content: "\e805"
+%iag-bicycle
+  content: "\e806"
+%iag-boat
+  content: "\e807"
+%iag-branch
+  content: "\e808"
+%iag-business
+  content: "\e809"
+%iag-calendar
+  content: "\e80a"
+%iag-call-us
+  content: "\e80b"
+%iag-car-firetheft
+  content: "\e80c"
+%iag-car-plus
+  content: "\e80d"
+%iag-car-thirdparty
+  content: "\e80e"
+%iag-car-vintage
+  content: "\e80f"
+%iag-car
+  content: "\e810"
+%iag-caravan
+  content: "\e811"
+%iag-cctv
+  content: "\e812"
+%iag-chat
+  content: "\e813"
+%iag-claim
+  content: "\e814"
+%iag-contents
+  content: "\e815"
+%iag-ctp
+  content: "\e816"
+%iag-domestic
+  content: "\e817"
+%iag-edit
+  content: "\e818"
+%iag-email
+  content: "\e819"
+%iag-exclamation
+  content: "\e81a"
+%iag-exist-condition
+  content: "\e81b"
+%iag-ext-link
+  content: "\e81c"
+%iag-facebook
+  content: "\e81d"
+%iag-faq
+  content: "\e81e"
+%iag-farms
+  content: "\e81f"
+%iag-flickr
+  content: "\e820"
+%iag-food
+  content: "\e821"
+%iag-google
+  content: "\e822"
+%iag-health
+  content: "\e823"
+%iag-help
+  content: "\e824"
+%iag-home-building
+  content: "\e825"
+%iag-home-contents
+  content: "\e826"
+%iag-home-flood
+  content: "\e827"
+%iag-home-plus
+  content: "\e828"
+%iag-home
+  content: "\e829"
+%iag-hours
+  content: "\e82a"
+%iag-income-protect
+  content: "\e82b"
+%iag-info
+  content: "\e82c"
+%iag-about-us
+  content: "\e801"
+%iag-intercom
+  content: "\e82e"
+%iag-iquote-retrieve
+  content: "\e82f"
+%iag-landlord
+  content: "\e830"
+%iag-life
+  content: "\e831"
+%iag-location
+  content: "\e832"
+%iag-login
+  content: "\e833"
+%iag-logout
+  content: "\e834"
+%iag-menu
+  content: "\e835"
+%iag-motor
+  content: "\e836"
+%iag-motorcycle-3rdparty
+  content: "\e837"
+%iag-motorcycle-vintage
+  content: "\e838"
+%iag-motorcycle
+  content: "\e839"
+%iag-multi-policy
+  content: "\e83a"
+%iag-multi-trip
+  content: "\e83b"
+%iag-nav-left
+  content: "\e83c"
+%iag-nav-right
+  content: "\e83d"
+%iag-next
+  content: "\e83e"
+%iag-patrols
+  content: "\e83f"
+%iag-pay-methods
+  content: "\e840"
+%iag-payment
+  content: "\e841"
+%iag-play
+  content: "\e842"
+%iag-plus
+  content: "\e843"
+%iag-policy
+  content: "\e844"
+%iag-postal
+  content: "\e845"
+%iag-previous
+  content: "\e846"
+%iag-professionals
+  content: "\e847"
+%iag-property
+  content: "\e848"
+%iag-question
+  content: "\e849"
+%iag-quote-new
+  content: "\e84a"
+%iag-refresh
+  content: "\e84b"
+%iag-register
+  content: "\e84c"
+%iag-retail
+  content: "\e84d"
+%iag-safe
+  content: "\e84e"
+%iag-scooter
+  content: "\e84f"
+%iag-search
+  content: "\e850"
+%iag-security
+  content: "\e851"
+%iag-strata
+  content: "\e852"
+%iag-tick
+  content: "\e853"
+%iag-trades
+  content: "\e854"
+%iag-transport
+  content: "\e855"
+%iag-travel
+  content: "\e856"
+%iag-twitter
+  content: "\e857"
+%iag-user
+  content: "\e858"
+%iag-users
+  content: "\e859"
+%iag-instagram
+  content: "\e82d"
